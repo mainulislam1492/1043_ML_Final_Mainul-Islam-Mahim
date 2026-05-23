@@ -4,10 +4,11 @@ from google.colab.patches import cv2_imshow
 cap = cv2.VideoCapture('cars.mp4')
 
 car_cascade = cv2.CascadeClassifier('haarcascade_cars.xml')
-
-while True:
+i = 0
+while i < 100:
+    
     ret, frame = cap.read()
-
+    i = i + 1
     if not ret:
         break
 

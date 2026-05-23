@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+from google.colab.patches import cv2_imshow # Added this import
 
 # --- Configuration ---
 VIDEO_SOURCE    = 'cars.mp4'
@@ -63,7 +64,7 @@ while ret:
     cv2.putText(frame1, f"Total Vehicles Detected: {car_count}",
                 (10, 90), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 170, 0), 2)
 
-    cv2.imshow("OUTPUT", frame1)
+    cv2_imshow(frame1) # Changed cv2.imshow to cv2_imshow
 
     if cv2.waitKey(1) == 27:  # ESC to quit
         break

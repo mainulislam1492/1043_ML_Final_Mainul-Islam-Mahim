@@ -28,7 +28,14 @@ ret, frame1 = cap.read()
 ret, frame2 = cap.read()
 
 # --- Main Loop ---
-while ret:
+total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+i = 0
+while ret and i < total_frames:
+    i += 1
+    if not ret:
+        break
+
+    # --- Calculate difference
     diff    = cv2.absdiff(frame1, frame2)
     grey    = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
     blur    = cv2.GaussianBlur(grey, (5, 5), 0)
